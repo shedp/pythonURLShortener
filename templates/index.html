@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block heading %}
+    Ur URL
+{% endblock heading %}
+
+{% block content %}
+<form action="#" method="post">
+    <label for="url">Enter Ur https:// URL</label>
+    <input type="text" id="url" name="url" placeholder="Paste Your URL">
+    <button type="submit">Shorten URL</button>
+</form>
+<div class="result">
+    {{result}}
+    <button id="copy">Copy</button>
+</div>
+{% endblock content %}
