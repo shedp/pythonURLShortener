@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-# import hashlib
 from random import choice
 import string
 
@@ -11,10 +10,11 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'
 db = SQLAlchemy(app)
 
+# Setting up db as class
 class Urls(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    url = db.Column(db.String())
-    short_url = db.Column(db.String())
+    url = db.Column(db.String(), nullable=False)
+    short_url = db.Column(db.String(), nullable=False, unique=True)
 
     def __init__(self, url, short_url):
         self.url = url
@@ -25,24 +25,45 @@ def index():
     if request.method == 'POST':
         # POST METHOD which calls function on the URL entered
         url = request.form.get('url')
-        short_url = shorten_url(url)
-        return render_template('index.html', result = short_url)
+        db_url = db.session.query(Urls).filter_by(url=url).first()
+        
+        if db_url:
+            result = f'http://127.0.01:5000/{db_url.short_url}'
+            return render_template('index.html', result=result, link=url)
+
+        else:
+            short_url = generate_short_url(8)
+            new_link = Urls(url, short_url)
+            db.session.add(new_link)
+            db.session.commit()
+            result = f'http://127.0.01:5000/{short_url}'
+            return render_template('index.html', result=result, link=url)
     else:
         return render_template('index.html')
 
+@app.route('/<short_url>')
+def redirect_url(short_url):
+    link = db.session.query(Urls).filter_by(short_url=short_url).first()
+    if link:
+        print(link.url)
+        return redirect(link.url)
+    else:
+        flash("Invalid URL")
+        return render_template('index.html')
 
-def short_url_id(long_url):
-    # base62 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    # hash_value = int(hashlib.sha256(long_url.encode()).hexdigest(), 16)
-    # hash_string = ""
-    # url_length = len(long_url)
-    # while url_length > 0:
-    #     hash_string += base62[int(url_length) % 62]
-    #     url_length /=62
-    # return hash_string
-    return ''.join(choice(string.scii_letters+string.digits) for _ in range(10))
 
-# generate_short_id("https://www.enjoyalgorithms.com/blog/design-a-url-shortening-service-like-tiny-url")
+def generate_short_url(num):
+    while True:
+        key = ''.join(choice(string.ascii_lowercase+string.ascii_uppercase+string.digits) for _ in range(num))
+        db_short_url = db.session.query(Urls).filter_by(short_url = key).first()
+        if not db_short_url:
+            return key
+
+
+# 404 page not round 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":

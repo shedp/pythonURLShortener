@@ -1,0 +1,44 @@
+body{
+    top: 0px;
+    margin: 0px;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    min-height: 100%;
+    width: 50%;
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(240, 209, 240);
+}
+
+form {
+    display: block;
+    text-align: center;
+}
+
+input {
+    margin: 20px;
+}
+
+button {
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 5px;
+    background-color: white;
+}
+
+a {
+    font-weight: bold;
+}
+
+#result {
+    visibility: hidden;
+}

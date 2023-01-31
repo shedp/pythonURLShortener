@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script rel="stylesheet" href="{{ url_for('static', filename='/javascript/script.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='/styles/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
     <title>{% block heading %}{% endblock heading %}</title>
 </head>
 <body>
-    <h1>Shorten Ur URL</h1>
-    {% block content %}{% endblock content %}
-</body>
+    <main>
+        <h1>Shorten Ur URL</h1>
+        {% block content %}{% endblock content %}
+        <script defer src="{{ url_for('static', filename='/javascript/script.js') }}"></script>
+    </main>
+    </body>
 </html>

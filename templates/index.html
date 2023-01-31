@@ -1,6 +1,8 @@
 
 {% extends 'base.html' %}
 
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}" />
+
 {% block heading %}
     Ur URL
 {% endblock heading %}
@@ -8,11 +10,11 @@
 {% block content %}
 <form action="#" method="post">
     <label for="url">Enter Ur https:// URL</label>
-    <input type="text" id="url" name="url" placeholder="Paste Your URL">
+    <input type="text" id="url" name="url" placeholder="Paste Ur URl">
     <button type="submit">Shorten URL</button>
 </form>
-<div class="result">
-    {{result}}
+<div id="result">
+    <a href='{{link}}'>{{result}}</a>
     <button id="copy">Copy</button>
 </div>
 {% endblock content %}
