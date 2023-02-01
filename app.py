@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from random import choice
+import qrcode
 import string
 
 
@@ -29,14 +30,20 @@ def index():
         if not url=="":
             db_url = db.session.query(Urls).filter_by(url=url).first()
             if db_url:
-                result = f'http://127.0.01:5000/{db_url.short_url}'
+                short_url = db_url.short_url
+                result = f'http://127.0.01:5000/{short_url}'
+                # img = qrcode.make(url)
+                # img.save(app.root_path + f'/static/images/qr.png')
                 return render_template('index.html', result=result, link=url)
             else:
                 short_url = generate_short_url(8)
                 new_link = Urls(url, short_url)
                 db.session.add(new_link)
                 db.session.commit()
+                # img = qrcode.make(url)
+                # img.save(app.root_path + f'/static/images/qr.png')
                 result = f'http://127.0.01:5000/{short_url}'
+                
                 return render_template('index.html', result=result, link=url)
         else:
             return render_template('index.html')

@@ -8,6 +8,7 @@ flask = "*"
 flask-migrate = "*"
 flask-sqlalchemy = "*"
 flask-cors = "*"
+qrcode = "*"
 
 [dev-packages]
 

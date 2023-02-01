@@ -13,6 +13,7 @@
 <body>
     <main>
         <h1>Shorten Ur URL <img src="{{ url_for('static', filename='/images/link.png') }}"></h1>
+        <p>Ur URL is too loooong? We can shorten it!</p>
         {% block content %}{% endblock content %}
         <script defer src="{{ url_for('static', filename='/javascript/script.js') }}"></script>
     </main>

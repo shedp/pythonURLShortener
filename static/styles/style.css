@@ -95,3 +95,7 @@ img {
 p {
     color: rgb(51, 51, 51);
 }
+
+#qrcode {
+    width: 5rem;
+}
