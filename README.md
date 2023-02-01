@@ -30,12 +30,18 @@ A URL shortener for people who like pink :heartpulse::kiss::heart_decoration:
 ### Copy to Clipboard 
 
 - Was achieved using `navigator.clipboard.writeText`, something we had not used before.
-- The colour scheme (so cute)
+
+### The colour scheme
+
+- (so cute)
 
 ## Challenges
 
-- We forgot a lot of our Javascript when writing the script.js (lol)
-- Writing the python logic to generate a random string id
+- We forgot a lot of our Vanilla Javascript when writing the script.js (lol, forgive us it's been 7 weeks)
+- Writing the python logic to generate a random string
+
+## Challenges
+
 - Validation in the backend for non valid url entries (still created in backend database)
 
 ## Contributors
