@@ -13,3 +13,6 @@ flask-cors = "*"
 
 [requires]
 python_version = "3.11"
+
+[script]
+dev = "flask run"
