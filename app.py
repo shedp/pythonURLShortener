@@ -6,6 +6,7 @@ import string
 
 
 app = Flask(__name__)
+app.secret_key = "gjskdhgodhgos"
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'
 db = SQLAlchemy(app)
@@ -23,21 +24,22 @@ class Urls(db.Model):
 @app.route("/", methods=['GET','POST'])
 def index():
     if request.method == 'POST':
-        # POST METHOD which calls function on the URL entered
         url = request.form.get('url')
-        db_url = db.session.query(Urls).filter_by(url=url).first()
-        
-        if db_url:
-            result = f'http://127.0.01:5000/{db_url.short_url}'
-            return render_template('index.html', result=result, link=url)
-
+        print(url)
+        if not url=="":
+            db_url = db.session.query(Urls).filter_by(url=url).first()
+            if db_url:
+                result = f'http://127.0.01:5000/{db_url.short_url}'
+                return render_template('index.html', result=result, link=url)
+            else:
+                short_url = generate_short_url(8)
+                new_link = Urls(url, short_url)
+                db.session.add(new_link)
+                db.session.commit()
+                result = f'http://127.0.01:5000/{short_url}'
+                return render_template('index.html', result=result, link=url)
         else:
-            short_url = generate_short_url(8)
-            new_link = Urls(url, short_url)
-            db.session.add(new_link)
-            db.session.commit()
-            result = f'http://127.0.01:5000/{short_url}'
-            return render_template('index.html', result=result, link=url)
+            return render_template('index.html')
     else:
         return render_template('index.html')
 

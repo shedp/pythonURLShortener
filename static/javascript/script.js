@@ -1,19 +1,30 @@
-const result = document.getElementById("result")
-const link = document.querySelector('a')
-
+const result = document.querySelector('#result a').innerText
+const copyBtn = document.getElementById("copy")
+const urlInput = document.getElementById('url')
 const form = document.querySelector('form')
 
-form.addEventListener("submit", show_url())
+form.addEventListener("DOMContentLoaded", showCopy())
 
-function show_url() {
-    result.style.visibility = "visible"
+function showCopy() {
+    if (result) {
+        copyBtn.style.visibility = "visible"
+    } else {
+        copyBtn.style.visibility = "hidden"
+    }
 }
 
-const copyBtn = document.getElementById("copy")
-copyBtn.addEventListener("onclick", copyURL)
+const input = document.querySelector("input")
+form.addEventListener("submit", no_text)
+
+function no_text(e) {
+    if (urlInput.value == "") {
+        e.preventDefault()
+        alert("Please enter a URL")
+    }
+}
+
+copyBtn.addEventListener("click", copyURL)
 
 function copyURL(e) {
-    copy_text = document.getElementById('url')
-    copy_text.select()
-    navigator.clipboard.writeText(copy_text.value)
+    navigator.clipboard.writeText(result).then(console.log("copied to clipboard"))
 }

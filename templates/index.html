@@ -8,9 +8,9 @@
 {% endblock heading %}
 
 {% block content %}
-<form action="#" method="post">
-    <label for="url">Enter Ur https:// URL</label>
-    <input type="text" id="url" name="url" placeholder="Paste Ur URl">
+<form action="/" method="post" onsubmit="no_text(e)">
+    <label for="url">Enter Ur URL</label>
+    <input type="text" id="url" name="url" placeholder="https://..." required>
     <button type="submit">Shorten URL</button>
 </form>
 <div id="result">

@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+    font-family: 'Itim', cursive;
+
+}
+
 body{
     top: 0px;
     margin: 0px;
-    padding: 2rem;
+    padding: 5rem;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    /* background-image: url("../images/pngtree-technical-abstract-technology-background-with-geometric-shape-image_430549.jpg"); */
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
 }
 
 main {
@@ -11,11 +19,12 @@ main {
     text-align: center;
     margin: auto;
     min-height: 100%;
-    width: 50%;
-    border: 2px solid black;
-    padding: 20px;
+    width: 70%;
+    padding: 50px;
     border-radius: 20px;
-    background-color: rgb(240, 209, 240);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 1.3rem
 }
 
 form {
@@ -23,22 +32,33 @@ form {
     text-align: center;
 }
 
-input {
+input[type='text'] {
     margin: 20px;
+    font-family: 'Itim', cursive;
+    border-radius: 15px;
+    border: 1px solid #FF6A88;
+    width: 10rem;
 }
 
 button {
     margin-top: 10px;
     border-radius: 5px;
     font-size: 1rem;
-    padding: 5px;
-    background-color: white;
+    padding: 0.5rem;
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    font-family : inherit;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
 }
 
 a {
     font-weight: bold;
+    text-decoration: none;
+    color:  #FF6A88
 }
 
-#result {
-    visibility: hidden;
+h1 {
+    color:  #FF6A88
 }
