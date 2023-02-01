@@ -63,9 +63,9 @@ def generate_short_url(num):
 
 
 # 404 page not round 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
+# @app.errorhandler(404)
+# def page_not_found(e):
+#     return render_template('404.html'), 404
 
 
 if __name__ == "__main__":

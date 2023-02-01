@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/Nails.jpg') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.jpg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/styles/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     
@@ -12,9 +12,7 @@
 </head>
 <body>
     <main>
-        <h1>Shorten Ur URL</h1>
-        <img src="{{ static('images/Heart.png') }}" alt="">
-        <img src="{{ url_for('static',filename='images/Nails.jpg') }}" alt="">
+        <h1>Shorten Ur URL <img src="{{ url_for('static', filename='/images/link.png') }}"></h1>
         {% block content %}{% endblock content %}
         <script defer src="{{ url_for('static', filename='/javascript/script.js') }}"></script>
     </main>

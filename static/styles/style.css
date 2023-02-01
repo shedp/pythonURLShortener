@@ -10,21 +10,39 @@ body{
     margin: 0px;
     padding: 5rem;
     text-align: center;
-    /* background-image: url("../images/pngtree-technical-abstract-technology-background-with-geometric-shape-image_430549.jpg"); */
-    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    /* background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%); */
+    background: linear-gradient(-45deg, #e73c7e, #FF9A8B, #FF6A88, #FF99AC); 
+    background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+    overflow: hidden;
 }
+
+/* background animation */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} 
 
 main {
     align-items: center;
     text-align: center;
     margin: auto;
-    min-height: 100%;
+    min-height: 40vh;
     width: 70%;
     padding: 50px;
     border-radius: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    font-size: 1.3rem
+    font-size: 1.3rem;
+
 }
 
 form {
@@ -32,12 +50,18 @@ form {
     text-align: center;
 }
 
+label {
+    color: rgb(51, 51, 51);
+}
+
 input[type='text'] {
     margin: 20px;
     font-family: 'Itim', cursive;
     border-radius: 15px;
     border: 1px solid #FF6A88;
-    width: 10rem;
+    width: 60%;
+    height: 1.5rem;
+    padding: 2px 15px;
 }
 
 button {
@@ -46,7 +70,7 @@ button {
     font-size: 1rem;
     padding: 0.5rem;
     background-color: #FF9A8B;
-    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    background-image: linear-gradient(90deg, #ffb68b 0%, #f46481 55%, #FF99AC 100%);
     font-family : inherit;
     border: 1px solid white;
     color: white;
@@ -56,9 +80,18 @@ button {
 a {
     font-weight: bold;
     text-decoration: none;
-    color:  #FF6A88
+    color:  #FF6A88;
+    margin-right: 5px;
 }
 
 h1 {
     color:  #FF6A88
+}
+
+img {
+    width: 2rem;
+}
+
+p {
+    color: rgb(51, 51, 51);
 }
