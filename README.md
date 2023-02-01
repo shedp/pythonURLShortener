@@ -12,8 +12,8 @@ A URL shortener for people who like pink :heartpulse::kiss::heart_decoration:
 
 ### Usage
 
-- `pipenv run dev` to run the server
-- The webpage should automatically open in your default browser
+- `pipenv run dev` or  `flask run` to run the server
+- Go the http://127.0.0.1:5000/ on your browser
 - Enter your desired URL to be shortened and click 'shorten URL'
 
 ## Technologies
