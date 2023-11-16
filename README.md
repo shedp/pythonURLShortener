@@ -2,6 +2,8 @@
 
 A URL shortener for people who like pink :heartpulse::kiss::heart_decoration:
 
+This is a pair programming task made with Flask, Jinga2 with pipenv as the python environment.
+
 ## Installation and Usage
 
 ### Installation
