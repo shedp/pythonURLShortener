@@ -13,7 +13,7 @@ A URL shortener for people who like pink :heartpulse::kiss::heart_decoration:
 ### Usage
 
 - `pipenv run dev` or  `flask run` to run the server
-- Go the http://127.0.0.1:5000/ on your browser
+- Go the `http://127.0.0.1:5000/` on your browser
 - Enter your desired URL to be shortened and click 'shorten URL'
 
 ## Technologies
@@ -27,14 +27,13 @@ A URL shortener for people who like pink :heartpulse::kiss::heart_decoration:
 
 ## Wins
 
-### Copy to Clipboard 
-
+Copy to Clipboard:
 - Was achieved using `navigator.clipboard.writeText`, something we had not used before.
-- The colour scheme (so cute)
+- Turning the typical tech blue and greys into colourful pink! (So cute!)
 
 ## Challenges
 
-- We forgot a lot of our Javascript when writing the script.js (lol)
+- We differences betwwen Python and the famililar Javascript
 - Writing the python logic to generate a random string id
 - Validation in the backend for non valid url entries (still created in backend database)
 
@@ -43,4 +42,4 @@ A URL shortener for people who like pink :heartpulse::kiss::heart_decoration:
 @shedp :woman_technologist:
 @PollyFenne :woman_technologist:
 
-                      
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat&logo=appveyor)](https://opensource.org/licenses/MIT)
