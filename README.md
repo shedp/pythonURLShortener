@@ -20,12 +20,18 @@ This is a pair programming task made with Flask, Jinga2 with pipenv as the pytho
 
 ## Technologies
 
+### Languages
 - Python
-- Flask
 - Javascript
+### Backend
+- Flask
+- SQLAlchemy
+- Pipenv
+### Frontend
+- Jinga2
 - HTML
 - CSS
-- SQLAlchemy
+
 
 ## Wins
 
@@ -35,7 +41,7 @@ Copy to Clipboard:
 
 ## Challenges
 
-- We differences betwwen Python and the famililar Javascript
+- Difficulty switching between Python and the famililar Javascript
 - Writing the python logic to generate a random string id
 - Validation in the backend for non valid url entries (still created in backend database)
 
